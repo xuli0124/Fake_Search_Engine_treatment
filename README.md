@@ -1,1 +1,2 @@
-# Fake_Search_Engine_treatment
+# Fake Search Engine: treatment group
+Reaults listed by category
