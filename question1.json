@@ -83,13 +83,7 @@
   	],
   "accommodation":
   [
-		{
-		"id": "12",
-		"title": "Peking Youth Hostel",
-		"image": "",
-		"link": "",
-		"content": "Address: No. 10 Qianmen Street, Beijng, China"
-	},
+		
 	{
 		"id": "13",
 		"title": "Lama Temple International Youth Hostel",
