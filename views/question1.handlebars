@@ -25,7 +25,7 @@
         <input type="submit" value="Next">
     </form>
     <br>
-
+    
     <br>
     <!--
     <li>
@@ -36,15 +36,30 @@
     <button id = "next_button" class = "next_button" onclick = "gotoQuestionnaire()">Next</button>
 -->
     <ul id="result_list">
-        <a href="question1_food" class="thumbnail" target="_blank">
-          <h2>food</h2>
-        </a>
-        <a href="question1_places" class="thumbnail" target="_blank">
-          <h2>Places</h2>
-        </a>
-        <a href="question1_accommodations" class="thumbnail" target="_blank">
-          <h2>Accommodation</h2>
-        </a>
+        <h2> Food </h2>
+        {{#each food}}
+            <li class="items">
+                <a href="q1_items/{{id}}" class="thumbnail" target="_blank">
+                    <p>{{title}}</p>
+                </a>
+            </li>
+        {{/each}}
+        <h2> Places </h2>
+        {{#each places}}
+            <li class="items">
+                <a href="q1_items/{{id}}" class="thumbnail" target="_blank">
+                    <p>{{title}}</p>
+                </a>
+            </li>
+        {{/each}}
+        <h2> Accommodation </h2>
+        {{#each accommodation}}
+            <li class="items">
+                <a href="q1_items/{{id}}" class="thumbnail" target="_blank">
+                    <p>{{title}}</p>
+                </a>
+            </li>
+        {{/each}}
 
     </ul>
 </body>
