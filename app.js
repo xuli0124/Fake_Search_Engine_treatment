@@ -12,6 +12,9 @@ var index = require('./routes/index');
 var q1 = require('./routes/question1');
 var q1_items = require('./routes/question1_items');
 var questionnaire1 = require('./routes/questionnaire1');
+var q1_food = require('./routes/question1_food');
+var q1_places = require('./routes/question1_places');
+var q1_accommodations = require('./routes/question1_accommodations');
 var app = express();
 
 // all environments
@@ -37,10 +40,14 @@ if ('development' == app.get('env')) {
 // Add routes here
 app.get('/', index.view);
 app.get('/question1', q1.view);
+app.get('/question1_food',q1_food.view);
+app.get('/question1_places',q1_places.view);
+app.get('/question1_accommodations',q1_accommodations.view);
 app.get('/addAnswer_for_question1', q1.addAnswer);
 app.get('/q1_items/:id', q1_items.view);
 app.get('/questionnaire1', questionnaire1.view);
 app.get('/questionnaire_for_question1', questionnaire1.addAnswer);
+
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
