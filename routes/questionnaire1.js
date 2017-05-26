@@ -1,4 +1,5 @@
 var answer_file = require("../q1_response.json");
+var items = require('../question2.json');
 var fs = require('fs');
 
 exports.view = function (req, res) {
@@ -24,7 +25,7 @@ exports.addAnswer = function (req, res) {
             //res.json(1);
             console.log("done");
             //gotoQuestion2();
-            res.render('question2');
+            res.render('question2', items);
         }
     });
 }
