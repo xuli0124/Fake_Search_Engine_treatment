@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+    <title>Fake Search Engine</title>
+	<link rel="stylesheet" href="/css/index.css" />
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/question2.js"></script>
+    <style>
+        #time_part {
+            text-align: right;
+        }
+    </style>
+</head>
+<body onload="timeCount()">
+    <h4 id = "time_part">Time past (sec): <input type="text" id="mytime" name = "mytime" form="usrform"></h4>
+    <li>
+    <h3>2. Please plan your graduate program in US.(limit your choice within CS, Math, Finance)</h3>
+    </li>
+    <!--
+    <textarea rows="10" cols="80"></textarea>
+-->
+    <textarea rows="4" cols="50" name="answer" id = "answer" form="usrform"></textarea>
+    <form action="/addAnswer_for_question1" id="usrform">
+        <input type="submit" value="Next">
+    </form>
+    <br>
+
+    <br>
+    <!--
+    <li>
+        <h3>1. Please plan your day trip to Beijing based on the itmes shown below.</h3>
+    </li>
+    <textarea rows="10" cols="80"></textarea>
+    <br>
+    <button id = "next_button" class = "next_button" onclick = "gotoQuestionnaire()">Next</button>
+-->
+    <ul id="result_list">
+        <h2> Locations </h2>
+        <h3> East </h3>
+        {{#each east}}
+            <li class="items">
+                <a href="q2_items/{{id}}" class="thumbnail" target="_blank">
+                    <p>{{title}}</p>
+                </a>
+            </li>
+        {{/each}}
+        <h3> West </h3>
+        {{#each west}}
+            <li class="items">
+                <a href="q2_items/{{id}}" class="thumbnail" target="_blank">
+                    <p>{{title}}</p>
+                </a>
+            </li>
+        {{/each}}
+        <h3> Middle </h3>
+        {{#each middle}}
+            <li class="items">
+                <a href="q2_items/{{id}}" class="thumbnail" target="_blank">
+                    <p>{{title}}</p>
+                </a>
+            </li>
+        {{/each}}
+
+        <h2> Rankings </h2>
+        <h3> Computer Science </h3>
+        {{#each cs}}
+            <li class="items">
+                <a href="q2_items/{{id}}" class="thumbnail" target="_blank">
+                    <p>{{title}}</p>
+                </a>
+            </li>
+        {{/each}}
+        <h3> Math </h3>
+        {{#each math}}
+            <li class="items">
+                <a href="q2_items/{{id}}" class="thumbnail" target="_blank">
+                    <p>{{title}}</p>
+                </a>
+            </li>
+        {{/each}}
+        <h3> Finance </h3>
+        {{#each finance}}
+            <li class="items">
+                <a href="q2_items/{{id}}" class="thumbnail" target="_blank">
+                    <p>{{title}}</p>
+                </a>
+            </li>
+        {{/each}}
+    </ul>
+</body>
+</html>

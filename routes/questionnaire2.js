@@ -18,12 +18,11 @@ exports.addAnswer = function (req, res) {
 	answer_file.questionnaires.push(questionnaire_1);
 	var json = JSON.stringify(answer_file);
 	fs.writeFile("q1_response.json", json, 'utf8', function errorCallback(err) {
-		if (err) {
+		if (err) {            
             console.log("wrong");
         } else {
             //res.json(1);
             console.log("done");
-            //gotoQuestion2();
             res.render('question2');
         }
     });
