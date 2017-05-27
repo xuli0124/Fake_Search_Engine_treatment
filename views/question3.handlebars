@@ -10,7 +10,7 @@
             integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
             crossorigin="anonymous"></script>
     <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/question2.js"></script>
+    <script src="/js/question1.js"></script>
     <style>
         #time_part {
             text-align: right;
@@ -32,88 +32,111 @@
 <body onload="timeCount()">
     <h4 id = "time_part">Time past (sec): <input type="text" id="mytime" name = "mytime" form="usrform"></h4>
     <li>
-    <h3>2. Please plan your graduate program in US.(limit your choice within CS, Math, Finance)</h3>
+    <h3>3. Imagine you are going to San Diego for a day trip with your friends and you decided to rent a car and pick up at SAN airport. There are 5 people altogether and the budget for car rental is below $60 per day. Pleae write your decisions below based on the results listed below.</h3>
     </li>
     <!--
     <textarea rows="10" cols="80"></textarea>
 -->
     <textarea rows="4" cols="50" name="answer" id = "answer" form="usrform"></textarea>
-    <form action="/addAnswer_for_question2" id="usrform">
+    <form action="/addAnswer_for_question3" id="usrform">
         <input type="submit" value="Next">
     </form>
     <br>
-
     <br>
-    <!--
-    <li>
-        <h3>1. Please plan your day trip to Beijing based on the itmes shown below.</h3>
-    </li>
-    <textarea rows="10" cols="80"></textarea>
-    <br>
-    <button id = "next_button" class = "next_button" onclick = "gotoQuestionnaire()">Next</button>
--->
     <div id = "wrap">
     <div id = "left_col">
     <ul id="result_list">
-        <h2> Locations </h2>
+        <h2> Car types </h2>
         <ul>
-        <h4> East </h4>
-            {{#each east}}
+            <h4> Premium </h4>
+            {{#each premium}}
             <li class="items">
-                <a href="q2_items/{{id}}" class="thumbnail" target="_blank">
+                <a href="q3_items/{{id}}" class="thumbnail" target="_blank">
                     <p>{{title}}</p>
                 </a>
             </li>
             {{/each}}
         </ul>
         <ul>
-        <h4> West </h4>
-            {{#each west}}
+            <h4> SUV </h4>
+            {{#each suv}}
             <li class="items">
-                <a href="q2_items/{{id}}" class="thumbnail" target="_blank">
+                <a href="q3_items/{{id}}" class="thumbnail" target="_blank">
                     <p>{{title}}</p>
                 </a>
             </li>
             {{/each}}
         </ul>
         <ul>
-        <h4> Middle </h4>
-            {{#each middle}}
+            <h4> Economy </h4>
+            {{#each economy}}
             <li class="items">
-                <a href="q2_items/{{id}}" class="thumbnail" target="_blank">
+                <a href="q3_items/{{id}}" class="thumbnail" target="_blank">
                     <p>{{title}}</p>
                 </a>
             </li>
             {{/each}}
         </ul>
+        <ul>
+            <h4> Convertible </h4>
+            {{#each convertible}}
+            <li class="items">
+                <a href="q3_items/{{id}}" class="thumbnail" target="_blank">
+                    <p>{{title}}</p>
+                </a>
+            </li>
+            {{/each}}
+        </ul>
+        <ul>
+            <h4> Compact </h4>
+            {{#each compact}}
+            <li class="items">
+                <a href="q3_items/{{id}}" class="thumbnail" target="_blank">
+                    <p>{{title}}</p>
+                </a>
+            </li>
+            {{/each}}
+        </ul>
+    </ul>
     </div>
     <div id = "right_col">
-        <h2> Rankings </h2>
+    <ul id="result_list">
+        <h2> Price Range </h2>
         <ul>
-        <h4> Computer Science </h4>
-            {{#each cs}}
+            <h4> less than $40 per day </h4>
+            {{#each less_than_40}}
             <li class="items">
-                <a href="q2_items/{{id}}" class="thumbnail" target="_blank">
+                <a href="q3_items/{{id}}" class="thumbnail" target="_blank">
                     <p>{{title}}</p>
                 </a>
             </li>
             {{/each}}
         </ul>
         <ul>
-        <h4> Math </h4>
-            {{#each math}}
+            <h4> $40 - $50 per day </h4>
+            {{#each _40_to_50}}
             <li class="items">
-                <a href="q2_items/{{id}}" class="thumbnail" target="_blank">
+                <a href="q3_items/{{id}}" class="thumbnail" target="_blank">
                     <p>{{title}}</p>
                 </a>
             </li>
             {{/each}}
         </ul>
         <ul>
-        <h4> Finance </h4>
-            {{#each finance}}
+            <h4> $50 - $60 per day </h4>
+            {{#each _50_to_60}}
             <li class="items">
-                <a href="q2_items/{{id}}" class="thumbnail" target="_blank">
+                <a href="q3_items/{{id}}" class="thumbnail" target="_blank">
+                    <p>{{title}}</p>
+                </a>
+            </li>
+            {{/each}}
+        </ul>
+        <ul>
+            <h4> more than $60 per day </h4>
+            {{#each more_than_60}}
+            <li class="items">
+                <a href="q3_items/{{id}}" class="thumbnail" target="_blank">
                     <p>{{title}}</p>
                 </a>
             </li>

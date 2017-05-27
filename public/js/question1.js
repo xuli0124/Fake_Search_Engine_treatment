@@ -1,9 +1,3 @@
-function gotoQuestionnaire(){
-	window.location.href = "questionnaire";
-}
-function gotoQuestion2(){
-	window.location.href = "question2";
-}
 //timing functions
 var c = 0;
 var t;
