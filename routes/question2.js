@@ -1,8 +1,8 @@
 var items = require('../question2.json');
 var answer_file = require("../q2_response.json");
 var fs = require('fs');
+var mongoose = require('mongoose');
 
-console.log(items);
 exports.view = function (req, res) {
     res.render('question2', items);
 };
@@ -14,7 +14,6 @@ exports.addAnswer = function (req, res){
 	answer_file.answers.push(answer);
     answer_file.time.push(time);
 
-    var mongoose = require('mongoose');
     var questionSchema = mongoose.Schema({
         answer: String,
         time: Number
@@ -29,7 +28,6 @@ exports.addAnswer = function (req, res){
         if (err) return console.error(err);
         else console.log("saved to db for q2!");
     });
-
 
 	var json = JSON.stringify(answer_file);
 	fs.writeFile("q2_response.json", json, 'utf8', function errorCallback(err) {

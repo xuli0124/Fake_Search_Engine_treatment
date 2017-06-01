@@ -1,23 +1,23 @@
 var items = require('../question1.json');
 var answer_file = require("../q1_response.json");
 var fs = require('fs');
+var mongoose = require('mongoose');
 
 exports.view = function (req, res) {
     res.render('question1', items);
 };
 
 exports.addAnswer = function (req, res){
-	var answer = req.query.answer;
-    var time = req.query.mytime;
+  var answer = req.query.answer;
+  var time = req.query.mytime;
 	//console.log(answer);
 	answer_file.answers.push(answer);
-    answer_file.time.push(time);
+  answer_file.time.push(time);
 
-    var mongoose = require('mongoose');
-    mongoose.connect('mongodb://cse216project:cse216project@ds117348.mlab.com:17348/cse216project');
-    var db = mongoose.connection;
-    db.on('error', console.error.bind(console, 'connection error:'));
-    db.once('open', function() {
+  mongoose.connect('mongodb://cse216project:cse216project@ds117348.mlab.com:17348/cse216project');
+  var db = mongoose.connection;
+  db.on('error', console.error.bind(console, 'connection error:'));
+  db.once('open', function() {
       // we're connected!
       console.log("connected!!");
       var questionSchema = mongoose.Schema({
@@ -34,11 +34,7 @@ exports.addAnswer = function (req, res){
         if (err) return console.error(err);
         else console.log("saved to db for q1!");
       });
-    });
-
-
-
-
+  });
 
 	var json = JSON.stringify(answer_file);
 	fs.writeFile("q1_response.json", json, 'utf8', function errorCallback(err) {
