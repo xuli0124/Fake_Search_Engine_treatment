@@ -14,7 +14,7 @@ exports.addAnswer = function (req, res){
 	answer_file.answers.push(answer);
   answer_file.time.push(time);
 
-  mongoose.connect('mongodb://cse216project:cse216project@ds117348.mlab.com:17348/cse216project');
+  mongoose.connect('mongodb://xuli:917058@ds147599.mlab.com:47599/heroku_qxcbfsfb');
   var db = mongoose.connection;
   db.on('error', console.error.bind(console, 'connection error:'));
   db.once('open', function() {
@@ -26,8 +26,8 @@ exports.addAnswer = function (req, res){
       });
       var question1_response = mongoose.model('treatment question1 response', questionSchema);
       var q1_response = new question1_response({
-        answer: answer, 
-        time: time 
+        answer: answer,
+        time: time
         });
       //console.log(q1_response.answer); // 'Silence'
       q1_response.save(function(err, q1_response){
@@ -38,7 +38,7 @@ exports.addAnswer = function (req, res){
 
 	var json = JSON.stringify(answer_file);
 	fs.writeFile("q1_response.json", json, 'utf8', function errorCallback(err) {
-		if (err) {            
+		if (err) {
             console.log("wrong");
         } else {
             //res.json(1);
