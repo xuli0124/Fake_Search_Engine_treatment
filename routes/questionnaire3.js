@@ -27,15 +27,15 @@ exports.addAnswer = function (req, res) {
         confident: Number,
 		improvement: String
 	});
-	var questionnaire1_response = mongoose.model('treatment questionnaire3 response', questionnaireSchema);
-	var q1_response = new questionnaire1_response({
+	var questionnaire3_response = mongoose.model('treatment questionnaire3 response', questionnaireSchema);
+	var q3_response = new questionnaire3_response({
 	    usefulness: usefulness,
 		efficiency: efficiency,
 		confident: confident,
 		improvement: improvement
 	});
 	      //console.log(q1_response.id); // 'Silence'
-	q1_response.save(function(err, q1_response){
+	q3_response.save(function(err, q3_response){
 	    if (err) return console.error(err);
 	    else {
 	    	console.log("saved to db for questionnaire3!");
@@ -45,7 +45,7 @@ exports.addAnswer = function (req, res) {
 
 	var json = JSON.stringify(answer_file);
 	fs.writeFile("q3_response.json", json, 'utf8', function errorCallback(err) {
-		if (err) {            
+		if (err) {
             console.log("wrong");
         } else {
             //res.json(1);

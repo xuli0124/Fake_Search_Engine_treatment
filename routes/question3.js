@@ -18,13 +18,13 @@ exports.addAnswer = function (req, res){
         answer: String,
         time: Number
       });
-    var question2_response = mongoose.model('treatment question3 response', questionSchema);
-    var q1_response = new question2_response({
-        answer: answer, 
-        time: time 
+    var question3_response = mongoose.model('treatment question3 response', questionSchema);
+    var q3_response = new question3_response({
+        answer: answer,
+        time: time
     });
     //console.log(q1_response.answer); // 'Silence'
-    q1_response.save(function(err, q1_response){
+    q3_response.save(function(err, q3_response){
         if (err) return console.error(err);
         else console.log("saved to db for q2!");
     });
