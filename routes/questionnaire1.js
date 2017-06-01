@@ -19,6 +19,27 @@ exports.addAnswer = function (req, res) {
 	};
 	console.log(questionnaire_1);
 	answer_file.questionnaires.push(questionnaire_1);
+
+	var mongoose = require('mongoose');
+	var questionnaireSchema = mongoose.Schema({
+		usefulness: Number,
+        efficiency: Number,
+        confident: Number,
+		improvement: String
+	});
+	var questionnaire1_response = mongoose.model('treatment questionnaire1 response', questionnaireSchema);
+	var q1_response = new questionnaire1_response({
+	    usefulness: usefulness,
+		efficiency: efficiency,
+		confident: confident,
+		improvement: improvement
+	});
+	      //console.log(q1_response.id); // 'Silence'
+	q1_response.save(function(err, q1_response){
+	    if (err) return console.error(err);
+	    else console.log("saved to db for questionnaire1!");
+	});
+
 	var json = JSON.stringify(answer_file);
 	fs.writeFile("q1_response.json", json, 'utf8', function errorCallback(err) {
 		if (err) {

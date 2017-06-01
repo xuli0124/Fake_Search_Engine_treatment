@@ -13,6 +13,24 @@ exports.addAnswer = function (req, res){
 	//console.log(answer);
 	answer_file.answers.push(answer);
     answer_file.time.push(time);
+
+    var mongoose = require('mongoose');
+    var questionSchema = mongoose.Schema({
+        answer: String,
+        time: Number
+      });
+    var question2_response = mongoose.model('treatment question2 response', questionSchema);
+    var q1_response = new question2_response({
+        answer: answer, 
+        time: time 
+    });
+    //console.log(q1_response.answer); // 'Silence'
+    q1_response.save(function(err, q1_response){
+        if (err) return console.error(err);
+        else console.log("saved to db for q2!");
+    });
+
+
 	var json = JSON.stringify(answer_file);
 	fs.writeFile("q2_response.json", json, 'utf8', function errorCallback(err) {
 		if (err) {
