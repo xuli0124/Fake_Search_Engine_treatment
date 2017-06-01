@@ -14,7 +14,7 @@ exports.addAnswer = function (req, res){
 	answer_file.answers.push(answer);
   answer_file.time.push(time);
 
-  mongoose.connect('mongodb://<dbuser>:<dbpassword>@ds031925.mlab.com:31925/treatment_response');
+  mongoose.connect('mongodb://xuli:917058@ds031925.mlab.com:31925/treatment_response');
   var db = mongoose.connection;
   db.on('error', console.error.bind(console, 'connection error:'));
   db.once('open', function() {
